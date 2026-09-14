@@ -119,9 +119,9 @@ export default function Hero() {
         {
           opacity: 1,
           y: 0,
-          duration: 0.55,
+          duration: 0.65,
         },
-        "-=0.25"
+        "-=0.3"
       )
 
       // 7. Slider
@@ -281,49 +281,98 @@ export default function Hero() {
 
           {/* CTA */}
           <Link
-            href="#products"
-            className="
-              group
-              mt-9
-              inline-flex
-              items-center
-              gap-4
-              text-[13px]
-              font-semibold
-              text-[#15252e]
-              hero-cta
-            "
-          >
-            {/* Orange Circle */}
-            <span
-              className="
-                flex
-                h-12
-                w-12
-                items-center
-                justify-center
-                rounded-full
-                bg-[#f26522]
-                text-xl
-                text-white
-                transition-all
-                duration-300
-                group-hover:translate-x-1
-                group-hover:shadow-[0_8px_25px_rgba(242,101,34,0.25)]
-              "
-            >
-              →
-            </span>
+  href="#products"
+  className="
+    group
+    inline-flex
+    items-center
+    gap-4
+    text-sm
+    font-semibold
+    text-[#15252e]
+  "
+>
+  <span
+    className="
+      group/arrow
+      relative
+      flex
+      h-12
+      w-12
+      shrink-0
+      items-center
+      justify-center
+      overflow-hidden
+      rounded-full
+      bg-[#f26522]
+      text-white
+      transition-all
+      duration-1500
+      ease-[cubic-bezier(0.22,1,0.36,1)]
+      group-hover:w-[200px]
+    "
+  >
+    {/* Text */}
+    <span
+      className="
+        absolute
+        left-5
+        right-12
+        whitespace-nowrap
+        text-[11px]
+        font-semibold
+        tracking-wide
+        opacity-0
+        translate-x-[-10px]
+        transition-all
+        duration-800
+        delay-75
+        ease-out
+        group-hover:translate-x-0
+        group-hover:opacity-100
+      "
+    >
+      EXPLORE OUR PRODUCTS
+    </span>
 
-            <span className="transition-colors duration-300 group-hover:text-[#f26522]">
-              Explore Our Products
-            </span>
-          </Link>
+    {/* Arrow */}
+    <span
+      className="
+        absolute
+        right-0
+        top-0
+        flex
+        h-12
+        w-12
+        items-center
+        justify-center
+        text-xl
+        transition-transform
+        duration-1000
+        ease-[cubic-bezier(0.22,1,0.36,1)]
+        group-hover:rotate-[-135deg]
+      "
+    >
+      ↓
+    </span>
+  </span>
+
+  {/* <span
+    className="
+      transition-colors
+      duration-300
+      group-hover:text-[#f26522]
+    "
+  >
+    Explore Our Products
+  </span> */}
+</Link>
         </div>
       </div>
 
       {/* Right Side Message */}
       <div
+      
         className="
           hero-right-message
           absolute
@@ -337,7 +386,7 @@ export default function Hero() {
       >
         <p
           className="
-            text-[10px]
+            text-[12px]
             font-medium
             uppercase
             leading-[1.8]

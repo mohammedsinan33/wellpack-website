@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
+import MagneticButton from "../ui/MagneticButton";
+
 const navLinks = [
   { name: "Home", href: "#home" },
   { name: "Products", href: "#products" },
@@ -61,13 +63,20 @@ export default function Navbar() {
         {/* Right side */}
         <div className="flex items-center gap-4">
           {/* Quote Button */}
-          <Link
-            href="#contact"
-            className="hidden items-center gap-3 rounded-[7px] bg-[#f26522] px-5 py-3 text-[11px] font-semibold text-white transition-all duration-300 hover:-translate-y-[1px] hover:bg-[#e55717] hover:shadow-lg sm:flex"
-          >
-            Get a Quote
-            <span className="text-[15px]">→</span>
-          </Link>
+         <MagneticButton
+  href="#contact"
+  className="
+    hidden
+    px-5
+    py-4
+    text-[15px]
+    font-semibold
+    sm:inline-flex
+    wp-magnetic-button--orange
+  "
+>
+  <span>Get a Quote</span>
+</MagneticButton>
 
           {/* Mobile Menu */}
           <button
