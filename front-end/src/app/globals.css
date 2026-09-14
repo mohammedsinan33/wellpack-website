@@ -1,0 +1,205 @@
+@import "tailwindcss";
+
+:root {
+  /* ─────────────────────────
+     Wellpack Brand Colors
+  ───────────────────────── */
+
+  --background: #f5f2eb;
+  --foreground: #15252e;
+
+  --wellpack-orange: #f26522;
+  --wellpack-teal: #00a6ad;
+  --wellpack-slate: #30485b;
+
+  --wellpack-cream: #f5f2eb;
+  --wellpack-paper: #faf9f5;
+  --wellpack-dark: #15252e;
+  --wellpack-muted: #687277;
+
+  --border: #dedbd3;
+}
+
+@theme inline {
+  /* Colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-wellpack-orange: var(--wellpack-orange);
+  --color-wellpack-teal: var(--wellpack-teal);
+  --color-wellpack-slate: var(--wellpack-slate);
+
+  --color-wellpack-cream: var(--wellpack-cream);
+  --color-wellpack-paper: var(--wellpack-paper);
+  --color-wellpack-dark: var(--wellpack-dark);
+  --color-wellpack-muted: var(--wellpack-muted);
+
+  --color-border: var(--border);
+
+  /* Fonts */
+  --font-sans: var(--font-dm-sans);
+  --font-heading: var(--font-manrope);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-dm-sans), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-manrope), sans-serif;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+@keyframes hero-background-in {
+  from {
+    opacity: 0;
+    transform: scale(1.08);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.hero-image {
+  transform-origin: center;
+  animation: hero-background-in 2.2s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-image {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes hero-content-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* @keyframes hero-diagonal-in {
+  from {
+    opacity: 0;
+    transform: translate(120%, -120%) rotate(30deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0, 0) rotate(40deg);
+  }
+}
+
+.hero-image {
+  animation: hero-image-in 1.25s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-content {
+  animation: hero-content-in 0.9s 0.35s cubic-bezier(0.22, 1, 0.36, 1)
+    both;
+}
+
+.hero-diagonal-slate,
+.hero-diagonal-orange {
+  animation: hero-diagonal-in 1.05s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-diagonal-orange {
+  animation-delay: 0.16s;
+} */
+
+@keyframes hero-diagonal-draw {
+  from {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+  }
+
+  to {
+    opacity: 1;
+    clip-path: inset(0);
+  }
+}
+
+.hero-diagonal-slate,
+.hero-diagonal-orange {
+  transform: rotate(40deg);
+  transform-origin: center;
+  animation: hero-diagonal-draw 2.2s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-image,
+  .hero-content,
+  .hero-diagonal-slate,
+  .hero-diagonal-orange {
+    animation: none;
+  }
+}
+
+::selection {
+  background: var(--wellpack-orange);
+  color: white;
+}
+
+@keyframes hero-box-in {
+  from {
+    opacity: 0;
+    transform: translateY(calc(clamp(8vh, 8vh, 96px) + 28px)) scale(1.02);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(clamp(8vh, 8vh, 96px)) scale(1);
+  }
+}
+
+.hero-box-layer {
+  animation: hero-box-in 2s 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-box-layer {
+    animation: none;
+    transform: translateY(clamp(8vh, 8vh, 96px));
+  }
+}
