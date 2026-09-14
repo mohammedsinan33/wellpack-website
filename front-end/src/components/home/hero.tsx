@@ -216,7 +216,7 @@ export default function Hero() {
           fill
           priority
           quality={100}
-          className="object-contain object-center"
+          className=" object-bottom"
         />
 
       </div>
