@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-import MagneticButton from "../ui/MagneticButton";
+import MagneticButton from "../ui/buttons/MagneticButton";
 
 const navLinks = [
   { name: "Home", href: "#home" },

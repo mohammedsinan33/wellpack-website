@@ -334,3 +334,74 @@ img {
   color: #ffffff;
 }
 
+
+
+.wp-magnetic-button--dark {
+  background-color: #ffffff;
+  color: var(--wellpack-dark);
+  border: 1px solid var(--wellpack-dark);
+}
+
+.wp-magnetic-button--dark::after {
+  border: none;
+}
+
+.wp-magnetic-button--dark .wp-magnetic-button__label {
+  color: var(--wellpack-dark);
+}
+
+.wp-magnetic-button--dark .wp-magnetic-button__flair::before {
+  background-color: #15252e;
+}
+
+.wp-magnetic-button--dark:hover .wp-magnetic-button__label {
+  color: #ffffff;
+}
+
+
+
+/* ==========================================
+   MOBILE PRODUCT SCROLL ANIMATION
+========================================== */
+
+.mobile-card {
+  --index0: calc(var(--index) - 1);
+  --reverse-index: calc(var(--numcards) - var(--index0));
+  --reverse-index0: calc(var(--reverse-index) - 1);
+}
+
+/* Scale cards as they move through the viewport */
+@keyframes mobile-card-scale {
+  to {
+    transform: scale(
+      calc(1.1 - (0.1 * var(--reverse-index)))
+    );
+  }
+}
+
+#mobile-cards {
+  view-timeline-name: --mobile-cards-scroll;
+}
+
+/* Card content gets smaller as it leaves/stacks */
+.mobile-card__content {
+  --start-range: calc(
+    var(--index0) / var(--numcards) * 100%
+  );
+
+  --end-range: calc(
+    var(--index) / var(--numcards) * 100%
+  );
+
+  animation: linear mobile-card-scale forwards;
+
+  animation-timeline: --mobile-cards-scroll;
+
+  animation-range:
+    exit-crossing
+    var(--start-range)
+    exit-crossing
+    var(--end-range);
+
+  transform-origin: center top;
+}

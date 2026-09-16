@@ -51,7 +51,7 @@ export default function MagneticButton({
     gsap.to(flair, {
       xPercent: x,
       yPercent: y,
-      duration: 1.2,
+      duration: 1,
       ease: "power2.out",
       overwrite: true,
     });
